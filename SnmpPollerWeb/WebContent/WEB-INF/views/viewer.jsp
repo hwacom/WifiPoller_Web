@@ -57,11 +57,11 @@
 			      <th scope="col" nowrap="nowrap">頻道</th>
 			      <th scope="col" nowrap="nowrap">訊號強度</th>
 			      <th scope="col" nowrap="nowrap">雜訊等級</th>
-			      <th scope="col" nowrap="nowrap"><font color="red">信躁比 (SNR)</font></th>
-			      <th scope="col" nowrap="nowrap"><font color="red">首次出現時間</font></th>
-			      <th scope="col" nowrap="nowrap"><font color="red">最後出現時間</font></th>
-			      <th scope="col" nowrap="nowrap"><font color="blue">傳輸平均</font></th>
-			      <th scope="col" nowrap="nowrap"><font color="blue">接收平均</font></th>
+			      <th scope="col" nowrap="nowrap">信躁比 (SNR)</th>
+			      <th scope="col" nowrap="nowrap">首次出現時間</th>
+			      <th scope="col" nowrap="nowrap">最後出現時間</th>
+			      <th scope="col" nowrap="nowrap">傳輸平均</th>
+			      <th scope="col" nowrap="nowrap">接收平均</th>
 			    </tr>
 			  </thead>
 			</table>
