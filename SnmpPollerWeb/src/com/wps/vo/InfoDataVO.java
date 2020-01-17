@@ -14,8 +14,8 @@ public class InfoDataVO extends BaseVO {
 	private String lastDisconnectTime;
 	private String sendData;
 	private String receiveData;
-	private String avgSendData;
-	private String avgReceiveData;
+	private int avgSendData;
+	private int avgReceiveData;
 
 	public InfoDataVO() {
 	}
@@ -25,6 +25,9 @@ public class InfoDataVO extends BaseVO {
 			String fieldName = Env.FIELDS_NAME[i];
 
 			try {
+				if(fields[i].indexOf("KB/分") > 0) {
+					fields[i] = fields[i].replaceAll("KB/分", "");
+				}
 				BeanUtils.setProperty(this, fieldName, fields[i]);
 			} catch (Exception e) {
 				//Mapping不到欄位的不處理
@@ -80,16 +83,16 @@ public class InfoDataVO extends BaseVO {
 	public void setReceiveData(String receiveData) {
 		this.receiveData = receiveData;
 	}
-	public String getAvgSendData() {
+	public int getAvgSendData() {
 		return avgSendData;
 	}
-	public void setAvgSendData(String avgSendData) {
+	public void setAvgSendData(int avgSendData) {
 		this.avgSendData = avgSendData;
 	}
-	public String getAvgReceiveData() {
+	public int getAvgReceiveData() {
 		return avgReceiveData;
 	}
-	public void setAvgReceiveData(String avgReceiveData) {
+	public void setAvgReceiveData(int avgReceiveData) {
 		this.avgReceiveData = avgReceiveData;
 	}
 }

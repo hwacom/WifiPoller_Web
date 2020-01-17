@@ -42,7 +42,7 @@
 		    <span id="systemSpan" style="color: lime"></span>；<span id="refreshSpan"></span>
 		  </div>
 		</div>
-	
+		
 		<!-- 查詢結果TABLE區塊 -->
 		<div class="row">
 		  <div class="col-sm-12 infoTableSection" style="display:none;">
@@ -60,8 +60,8 @@
 			      <th scope="col" nowrap="nowrap">信躁比 (SNR)</th>
 			      <th scope="col" nowrap="nowrap">首次出現時間</th>
 			      <th scope="col" nowrap="nowrap">最後出現時間</th>
-			      <th scope="col" nowrap="nowrap">傳輸平均</th>
-			      <th scope="col" nowrap="nowrap">接收平均</th>
+			      <th scope="col" nowrap="nowrap">傳輸平均 KB/分</th>
+			      <th scope="col" nowrap="nowrap">接收平均 KB/分</th>
 			    </tr>
 			  </thead>
 			</table>
@@ -162,7 +162,7 @@
 				"bLengthChange" : true,
 				"pagingType" 	: "full_numbers",
 				"processing" 	: true,
-				"scrollX"		: false,
+				"scrollX"		: true,
 				"scrollY"		: dataTableHeight,
 				"scrollCollapse": false,
 				"pageLength"	: 25,
@@ -179,7 +179,7 @@
 						ajaxErrorHandler();
 					}
 				},
-				/*"order": [[6 , 'desc' ]],*/
+				"order": [[11 , 'desc' ]],
 				"initComplete": function(settings, json){
 					$.fn.dataTable.tables( { visible: true, api: true } ).columns.adjust();
 	            },

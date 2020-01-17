@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.service.LoadFileData;
@@ -23,7 +26,8 @@ import com.wps.vo.InfoDataVO;
 @WebServlet("/servlet/getInfoData.json")
 public class GetInfoDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private static Logger log = LoggerFactory.getLogger(GetInfoDataServlet.class);
+	
 	private LoadFileData loadFileData;
 
 	/**
@@ -44,7 +48,7 @@ public class GetInfoDataServlet extends HttpServlet {
 				loadFileData = new LoadFileDataImpl();
 			}
 			List<InfoDataVO> infoDataList = loadFileData.loadInfoData();
-
+			
 			DatatableResponse data = new DatatableResponse(new Long(infoDataList.size()), infoDataList, new Long(infoDataList.size()), "GetInfoData..");
 
 			ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
@@ -55,7 +59,7 @@ public class GetInfoDataServlet extends HttpServlet {
 			out.println(json);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error(e.toString(), e);
 		}
 	}
 

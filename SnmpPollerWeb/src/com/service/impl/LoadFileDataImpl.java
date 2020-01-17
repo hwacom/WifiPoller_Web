@@ -22,7 +22,12 @@ public class LoadFileDataImpl implements LoadFileData {
 			if (oriData != null && !oriData.isEmpty()) {
 				oriData.forEach(line -> {
 					String[] values = line.split(Env.FILE_CONTENT_SEPARATOR_SYMBOL);
-					retList.add(new InfoDataVO(values));
+					if(values.length > 10 && values[5] != null && !values[5].isEmpty()) {
+						InfoDataVO vo = new InfoDataVO(values);
+						if(vo.getApMacAddr().split("\\:").length > 5 && vo.getUserMacAddr().split("\\:").length > 5) {
+							retList.add(vo);
+						}
+					}
 				});
 			}
 
